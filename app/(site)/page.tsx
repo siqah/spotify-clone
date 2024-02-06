@@ -1,4 +1,5 @@
 import Header from "@/components/Header";
+import ListItem from "@/components/ListItem";
 
 export default function Home() {
   return (
@@ -18,10 +19,30 @@ export default function Home() {
           grid-cols-1
           sm:grid-cols-2
           xl:grid-cols-3
+          2xl:rid-cols-4
+          gap-3
+          mt-4
+
           ">
+            <ListItem
+            image="/images/like.png"
+            name="Liked Songs"
+            href="liked"
+            />
 
           </div>
        </Header>
+       <div className="mt-2 mb-7 px-6">
+           <div className="flex justify-between itemscenter">
+             <h1 className="text-white text-2xl font-semibold">
+              Newest Songs
+             </h1>
+           </div>
+
+           <div>
+            List od Songs!
+           </div>
+       </div>
       
     </div>
   )
