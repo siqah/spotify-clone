@@ -1,15 +1,11 @@
-
-
+import type { Metadata } from "next";
 import { Figtree } from "next/font/google";
 import "./globals.css";
-
 import Sidebar from "@/components/Sidebar";
 import SupabaseProvider from "@/providers/SupabaseProvider";
+const font = Figtree({ subsets: ["latin"] });
 
-
-const font = Figtree({ subsets: ["latin"]});
-
-export const metadata = {
+export const metadata: Metadata = {
   title: "Spotify clone",
   description: "Listen to Music",
 };
@@ -23,9 +19,10 @@ export default function RootLayout({
     <html lang="en">
       <body className={font.className}>
         <SupabaseProvider>
-            <Sidebar>
-                {children}
-            </Sidebar>
+
+        <Sidebar>
+            {children}
+         </Sidebar>
         </SupabaseProvider>
         
       </body>
