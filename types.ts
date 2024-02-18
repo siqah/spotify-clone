@@ -24,7 +24,7 @@ export interface Product {
 
 export interface Price {
     id: string;
-    product_id?: string;
+    product_id?: string; 
     active?: boolean;
     description?: string;
     unit_amount?: number;
@@ -44,7 +44,7 @@ export interface Subscription {
     status?: Stripe.Subscription.Status;
     metadata?:Stripe.Metadata;
     price_id?: string;
-    quantity?: string;
+    quantity?: number;
     cancel_at_period_end?: boolean;
     create: string;
     current_period_start:string;
