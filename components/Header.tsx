@@ -118,7 +118,9 @@ const Header: React.FC<HeaderProps> = ({
                  items-center
                  justify-center
                  hover:opacity-75
-                 transition'
+                 transition
+                 '
+
                 >
                     <BiSearch className='text-black ' size={20}/>
                 </button>
