@@ -4,7 +4,7 @@ import useAuthModal from "@/hooks/useAuthModal"
 import { useUser } from "@/hooks/userUser"
 import { AiOutlinePlus } from "react-icons/ai"
 import { TbPlaylist } from "react-icons/tb"
-import useUploadModal from "@/hooks/useAuthModal"
+import useUploadModal from "@/hooks/useUploadModal"
 
 const Library = () => {
     const authModal = useAuthModal()
@@ -16,7 +16,7 @@ const Library = () => {
             return authModal.onOpen();
         }
       // TODO: CHECK FOR SUBSCRIPTION 
-        return authModal.onClose()
+        return uploadModal.onOpen()
         
     }
     return (
