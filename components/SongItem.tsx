@@ -77,6 +77,7 @@ const SongItem: React.FC<SongItemProps> = ({
           right-5
         "
       >
+        <PlayButton />
       </div>
     </div>
    );
