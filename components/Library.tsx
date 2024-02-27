@@ -6,7 +6,16 @@ import { AiOutlinePlus } from "react-icons/ai"
 import { TbPlaylist } from "react-icons/tb"
 import useUploadModal from "@/hooks/useUploadModal"
 
-const Library = () => {
+import { Song } from "@/types";
+
+interface LibraryProps {
+    songs ?: Song[]
+
+}
+
+const Library: React.FC<LibraryProps> = ({
+    songs = [],
+  }) => {
     const authModal = useAuthModal()
     const {user} = useUser();
     const uploadModal = useUploadModal()
@@ -46,7 +55,9 @@ const Library = () => {
 
             </div>
             <div className="flex flex-col gap-y-2 mt-2 pt-3">
-                List of songs!
+              {songs.map((item) => (
+                <div>{item.title}</div>
+              ))}
             </div>
         </div>
     )
