@@ -9,13 +9,13 @@ import Library from "./Library";
 import { Song } from "@/types";
 
 interface SidebarProps {
-    children:React.ReactNode;
+    children:React.ReactNode,
     songs:Song[]
 }
 
 
 
-const Sidebar: React.FC<SidebarProps> = ({
+const Sidebar : React.FC<SidebarProps> = ({
     children,
     songs
 }) => {
@@ -37,7 +37,7 @@ const Sidebar: React.FC<SidebarProps> = ({
     return(
        <div className="flex h-full">
          <div className="
-         hideen
+         hidn
          md:flex
          flex-col
          gap-y-2
