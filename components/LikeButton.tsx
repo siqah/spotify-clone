@@ -65,7 +65,22 @@ const LikeButton:React.FC<LikeButtonProps> = ({
             } else {
                 setIsLiked(false);
             }
+        }else {
+            const { error } = await supabaseClient
+                .from('liked_songs')
+                .insert({ 
+                    song_id: songId, 
+                    user_id: user.id });
+
+            if (error) {
+                toast.error(error.message);
+            } else {
+                setIsLiked(true);
+                toast.success('Song liked');
+            }
         }
+
+        router.refresh();
      }
   return (
     <button 
