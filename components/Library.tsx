@@ -1,7 +1,7 @@
 '"use client'
 
 import useAuthModal from "@/hooks/useAuthModal"
-import { useUser } from "@/hooks/userUser"
+import { useUser } from "@/hooks/useUser"
 import { AiOutlinePlus } from "react-icons/ai"
 import { TbPlaylist } from "react-icons/tb"
 import useUploadModal from "@/hooks/useUploadModal"
