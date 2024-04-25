@@ -1,28 +1,60 @@
-"use client"
+"use client";
+
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
+
 import { Song } from "@/types";
 import { useUser } from "@/hooks/useUser";
-import { useRouter } from "next/router";
-import { useEffect } from "react";
+import MediaItem from "@/components/MediaItem";
+import LikeButton from "@/components/LikeButton";
 
 interface LikedContentProps {
-    songs: Song[];
-}
+  songs: Song[];
+};
 
-const LikedContent:React.FC<LikedContentProps> = (
-    {
-     songs   
+const LikedContent: React.FC<LikedContentProps> = ({
+  songs
+}) => {
+  const router = useRouter();
+  const { isLoading, user } = useUser();
+
+
+  useEffect(() => {
+    if (!isLoading && !user) {
+      router.replace('/');
     }
-) => {
-    const router = useRouter();
-    const {isLoading, user} = useUser();
+  }, [isLoading, user, router]);
 
-    useEffect(()=>{
-        if(!isLoading && !user){
-            router.replace('/')
-    },[isLoading, user, router])
-    return ( 
-    <div>Liked</div> 
-    );
+  if (songs.length === 0) {
+    return (
+      <div 
+        className="
+          flex 
+          flex-col 
+          gap-y-2 
+          w-full px-6 
+          text-neutral-400
+        "
+      >
+        No liked songs.
+      </div>
+    )
+  }
+  return ( 
+    <div className="flex flex-col gap-y-2 w-full p-6">
+      {songs.map((song: any) => (
+        <div 
+          key={song.id} 
+          className="flex items-center gap-x-4 w-full"
+        >
+          <div className="flex-1">
+            <MediaItem onClick={() => {}} data={song} />
+          </div>
+          <LikeButton songId={song.id} />
+        </div>
+      ))}
+    </div>
+  );
 }
  
 export default LikedContent;
